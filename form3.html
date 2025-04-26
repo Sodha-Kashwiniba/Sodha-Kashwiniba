@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+</head>
+<body>
+    <fieldset>
+        <table cellpadding="5" align="center">
+            <tr>
+                <h1 align="center"><b>Create Account</b></h1>
+                <hr>
+            </tr> 
+            <tr>
+                <td><font color="Green"><label for="fname">First name*</label></font></td>
+                <td><font color="Green"><label for="lname">Last name*</label></font></td>
+            </tr>
+            <tr>
+                <td><input id="fname" placeholder="enter your first name"></td>
+                <td><input id="lname" placeholder="enter your last name"></td>
+            </tr>
+            <tr>
+                <td ><font color="Green" width="50"><label for="ename">Email*</label></font></td>
+                
+            </tr>
+            <tr>
+                <td colspan="2"  ><label><input id="ename" size="70" placeholder="enter your email" ></label></td>
+                
+            </tr>
+            <tr>
+                <td ><font color="Green"><label for="pname">Password*</label></font></td>
+                <td ><font color="Green"><label for="cname">Confirm Password*</label></font></td>
+            </tr>
+            <tr>
+                <td><input id="pname" placeholder="enter your password"></td>
+                <td><input id="cname" placeholder="enter your confirm password"></td>
+            </tr>
+            <tr>
+                <td><font color="Green">Gender:</font></td>
+                <td><font color="Green">Hobbies:</font></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" id="Male" name="Status" value="Male">Male
+                    <input type="radio" id="Female" name="Status" value="Female">Female
+                </td>
+                <td>
+                    <input type="checkbox" id="Music" name="Status" value="Music">Music
+                    <input type="checkbox" id="Sports" name="Status" value="Sports">Sports
+                    <input type="checkbox" id="Travel" name="Status" value="Travel">Travel
+                    <input type="checkbox" id="Movies" name="Status" value="Movies">Movies
+                </td>
+            </tr>
+            <tr>
+                <td><font color="Green"><label for="sname">Source of Income</label</font></td>
+                <td><font color="Green"> Income</font></td>
+            </tr>
+            <tr>
+                <td><select name="Source of income" id="sname" >
+                    <option value="Employed">Employed</option>
+                    <option value="">Business</option>
+                    <option value="House Property">House Property</option>
+                    <option value="Other Sources">Other Sources</option>
+                </td>
+                <td>
+                    <label for="points"></label>
+                    <input type="range" id="points" name="points" min="0" max="20K">20K
+                </td>
+                
+            </tr>
+            <tr>
+                <td><font color="Green">Upload Profile Picture</font></td>
+                <td><font color="Green">Age</font></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="file" id="myFile" name="filename">
+                </td>
+                <td>
+                    <input type="number">
+                </td>
+            </tr>
+            <tr>
+                <td><font color="Green">Bio</font></td>
+            </tr>
+            <tr>
+                <td><textarea name="" id="add" cols="40" rows="10" colspan="2"></textarea></td>
+            </tr>
+        </table>
+        <hr>
+        <div style="width: 200px; margin: 0 auto;" >
+        	<button  type="Create" >Create</button>
+        </div>
+    </fieldset>
+</body>
+</html>
