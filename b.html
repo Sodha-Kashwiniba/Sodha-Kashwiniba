@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .c1{
+            background-color: greenyellow;
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+            animation-name: dot1;
+            animation-duration: 12s;
+           animation-fill-mode: forwards;
+           position: relative;
+           animation-iteration-count: infinite;
+        }
+        @keyframes  dot1{
+            0%{
+                top: calc(0% + 10px);
+                left:calc(50% - 50px);
+            }
+           50%{
+                top: calc(100% - 50px);
+                left:calc(50% - 50px);
+           }
+           100%{
+                top: calc(0% + 10px);
+                left:calc(50% - 50px);
+           }
+           
+        }
+        .c2{
+            background-color:hotpink;
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+            animation-name: dot2;
+            animation-duration: 12s;
+           animation-fill-mode: forwards;
+           position: absolute;
+           animation-iteration-count: infinite;
+           
+        }
+        @keyframes  dot2{
+            0%{
+                top: calc(50% - 40px);
+                left: calc(100% - 50px);
+            }
+            50%{
+                top:calc(0% + 10px);          
+                left: calc(50% - 50px);
+            }
+            100%{
+                top: calc(50% - 40px);
+                left:calc(0% + 10px);
+            }
+
+        }
+        .c3{
+            background-color:yellow;
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+            animation-name: dot3;
+            animation-duration: 12s;
+           animation-fill-mode: forwards;
+           position: absolute;
+           animation-iteration-count: infinite;
+           
+        }
+        @keyframes  dot3{
+            0%{
+                top: calc(50% - 40px);
+                left: calc(100% - 50px);
+            }
+            50%{
+                top:calc(100% - 50px);          
+                left: calc(50% - 50px);
+            }
+            100%{
+                top: calc(50% - 40px);
+                left:calc(0% + 10px);
+            }
+        }
+        .c4{
+            background-color:plum;
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+            animation-name: dot4;
+            animation-duration: 12s;
+           animation-fill-mode: forwards;
+           position: absolute;
+           animation-iteration-count: infinite;
+           
+        }
+        @keyframes  dot4{
+            0%{
+                top: calc(50% - 40px);
+                left: calc(0% + 10px);
+            }
+            50%{
+                top:calc(100% - 50px);          
+                left: calc(50% - 50px);
+            }
+            100%{
+                top: calc(50% - 40px);
+                left:calc(100% - 50px);
+            }
+        }
+        .c5{
+            background-color:lightpink;
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+            animation-name: dot5;
+            animation-duration: 12s;
+           animation-fill-mode: forwards;
+           position: absolute;
+           animation-iteration-count: infinite;
+           
+        }
+        @keyframes  dot5{
+            0%{
+                top: calc(50% - 40px);
+                left: calc(0% + 10px);
+            }
+            50%{
+                top:calc(0% + 10px);          
+                left: calc(50% - 50px);
+            }
+            100%{
+                top: calc(50% - 40px);
+                left:calc(100% - 50px);
+            }
+        }
+        .c6{
+            background-color:lightskyblue;
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+            animation-name: dot6;
+            animation-duration: 12s;
+           animation-fill-mode: forwards;
+           position: absolute;
+           animation-iteration-count: infinite;
+        }
+        @keyframes  dot6{
+            0%{
+                top: calc(100% - 50px);
+                left:calc(50% - 50px);
+            }
+           50%{
+                top: calc(0% + 10px);
+                left:calc(50% - 50px);
+           }
+           100%{
+                top: calc(100% - 50px);
+                left:calc(50% - 50px);
+           }
+           
+        }
+
+
+    </style>
+</head>
+<body>
+    <div style="background-color: black; height: 100vh; width: 100%;">
+        <div class="c1"></div>
+        <div class="c2"></div>
+        <div class="c3"></div>
+        <div class="c4"></div>
+        <div class="c5"></div>
+        <div class="c6"></div>
+
+        
+
+    </div>
+</body>
+</html>
