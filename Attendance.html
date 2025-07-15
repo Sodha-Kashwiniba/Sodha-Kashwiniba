@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Attendance Tracker</title>
+  <style>
+    table {
+      width: 70%;
+      border-collapse: collapse;
+      margin: 20px auto;
+    }
+    th, td {
+      border: 1px solid #999;
+      padding: 10px;
+      text-align: center;
+    }
+    .present { color: green; font-weight: bold; }
+    .absent { color: red; font-weight: bold; }
+    .pending { color: orange; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <h1 style="text-align: center;">Student Attendance Tracker</h1>
+
+  <table id="attendance-table">
+    <thead>
+      <tr>
+        <th>Roll No.</th>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Mark Present</th>
+        <th>Mark Absent</th>
+      </tr>
+    </thead>
+    <tbody id="table-body">
+    </tbody>
+  </table>
+
+  <p style="text-align: center;">Total Present: <span id="present-count">0</span></p>
+  <p style="text-align: center;">Total Absent: <span id="absent-count">0</span></p>
+
+  <div style="text-align: center;">
+    <button onclick="resetAttendance()">Reset Attendance</button>
+  </div>
+<p style="text-align: center;">
+  Absent Roll Nos: <span id="absent-rolls">None</span>
+</p>
+
+  <script>
+    const students = ["Javiya Nirali", 
+                      "Kothadia Jal",
+                      "Parmar Bhavik", 
+                      "Ramani Manav",
+                      "Rathod Paras",
+                      "Chauhan Smit",
+                      "Lunagariya Tirth",
+                      "Bhatti Jiya",
+                      "Dhaduk Vandan",
+                      "Khorajiya Mahir",
+                      "Dangar Naimish", 
+                      "Sureja Vrunda",
+                      "Manek Malay", 
+                      "Raiyani Vishva",
+                      "Santoki Sakshiben",
+                      "Solanki Naimisha",
+                      "Taraviya Krutagn",
+                      "Bhatti Hardvi",
+                      "Dobariya Rutvi",
+                      "Gohel Darshan",
+                      "Siddhpura Vrinda", 
+                      "Somaiya Nihal",
+                      "Vala Harsiddhiba", 
+                      "Rankja Khushi",
+                      "Shingala Jina",
+                      "Shingala Dharmik",
+                      "Parsana Shubham",
+                      "Mendpara Krishaben",
+                      "Barevadiya Devarsh",
+                      "Gopani Mitsu",
+                      "Jamod Kashika", 
+                      "Kalola Hill",
+                      "Pipaliya Meet", 
+                      "Sadhu Kuldeep",
+                      "Dhandha Aayushi",
+                      "Jadeja Riddhiba",
+                      "Kanjariya Radhika",
+                      "Joshi Vivek",
+                      "Dashadiya Yash",
+                      "Kanzariya Krunal",
+                      "Jodhani Dhruvbhai", 
+                      "Shivang Nandani",
+                      "Rangani Arpit", 
+                      "Ghodasara Yashvi",
+                      "Rakhasiya Nikhil",
+                      "Dhamsaniya Princyben",
+                      "Tirth Gamara",
+                      "Mahek Patel",
+                      "Kasundra Prakruti",
+                      "Kacha Param",
+                      "Sorathiya Mann", 
+                      "Vansajaliya Ankit",
+                      "Fultariya om", 
+                      "Manvar Hemil",
+                      "Detroja Ujjwal",
+                      "Hinsu Vraj",
+                      "Vala Prashantkumar",
+                      "Jadeja Manvendrasinh",
+                      "Meghani Rishita",
+                      "Hirani Tulsiben",
+                      "Makwana Shraddha", 
+                      "Bhalala Het",
+                      "Chotaliya Jenish", 
+                      "Detroja Sharadkumar",
+                      "Kardani Prince",
+                      "Ughreja Dax",
+                      "Khambhala Tarkesh",
+                      "Sodha Kashwiniba",
+                      "Vachhani Janvi",
+                      "Dave Hetvi",
+                      "Padia Harsh", 
+                      "Umretiya Kush",
+                      "Khokhar Dhruvi", 
+                      "Parmar Anirudhdha",
+                      "Bhimani Jeel",
+                      "Patel Neel",
+                      "Mehta Sneha",
+                      "Parekh Bhargav",
+                      "Sakariya Mihir",
+                      "Gondaliya Shrijal",
+                      "Makvana Rutvik", 
+                      "Dodiya Riya",
+                      "Limbasiya Deep", 
+                      "Parmar Dhruvi",
+                      "Vishva Thesiya",
+                      "Dave Dhruv",
+                      "Lakkad Devisbhai",
+                      "Dalsaniya Yashvi",
+                      "Bhuva Shivam",
+                      "Malaviya Mitul", 
+                      "Solanki Aryan",
+                      "Vora Rudra", 
+                      "Solanki Vishal",
+                      "Vyas Jinal",
+                      "Savaliya Tirth",
+                      "Vasani Daksh",
+                      "Kantesaria Pari",
+                      "Baraiya Yash",
+                      "Goswami Rudra",
+                      "Ladani Mann", 
+                      "Parmar Uday",
+                      "Parsaniya Dhruvkumar", 
+                      "Vagh Dhavalbhai",
+                      "Ghoniya Vrunda",
+                      "Sankhavara Prayag",
+                      "Gohel Kuldeep",
+                      "Bhoraniya Priya",
+                      "Bajadiya Om",
+                      "Ghardeshiya Man",
+                      "Harkhani Ronak ",
+                      "Aryansinh Lalakia", 
+                      "Mendapara Utpal",
+                      "Bechra Diya",
+                      "Mathakiya Navfal",
+                      "Kamaliya Manaliben",
+                      "Vaghera Vaidika",
+                      "Dave Krisha",
+                      "Markana Nisarg",
+                      "Bagda Sandipkumar",
+                      "Vora Preet", 
+                      "Dhamsaniya Dhvani",
+                      "Mungara Meet",
+                      "Hinsu Maitri",
+                      "Mehta Vatsal",
+                      "Chadamiya Bhavy",
+                      "Bavaliya Tushar",
+                      "Kotadia Richa",
+                      "Chauhan Krutarth",
+                      "Sheth Harsh"
+                    ];
+    const attendance = {};
+
+  function updateSummary() {
+  let present = 0;
+  let absent = 0;
+
+  for (let name in attendance) {
+    if (attendance[name] == "Present") {
+      present++;
+    } else if (attendance[name] == "Absent") {
+      absent++;
+    }
+  }
+
+  document.getElementById("present-count").textContent = present;
+  document.getElementById("absent-count").textContent = absent;
+
+  let absentRolls = [];
+
+  for (let i = 0; i < students.length; i++) {
+    let name = students[i];
+    if (attendance[name] == "Absent") {
+      absentRolls.push(i + 301);
+    }
+  }
+
+  let absentText = absentRolls.length > 0 ? absentRolls.join(", ") : "None";
+  document.getElementById("absent-rolls").textContent = absentText;
+}
+
+    function markAttendance(name, status) {
+      attendance[name] = status;
+      const statusCell = document.getElementById(`status-${name}`);
+      statusCell.textContent = status;
+      statusCell.className = status.toLowerCase();
+      updateSummary();
+    }
+
+    function resetAttendance() {
+      students.forEach(name => {
+        attendance[name] = "Pending";
+        const statusCell = document.getElementById(`status-${name}`);
+        statusCell.textContent = "Pending";
+        statusCell.className = "pending";
+      });
+      updateSummary();
+    }
+    const tableBody = document.getElementById("table-body");
+    students.forEach((name, index=301) => {
+      attendance[name] = "Pending";
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${index + 301}</td>
+        <td>${name}</td>
+        <td id="status-${name}" class="pending">Pending</td>
+        <td><button onclick="markAttendance('${name}', 'Present')">Present</button></td>
+        <td><button onclick="markAttendance('${name}', 'Absent')">Absent</button></td>
+      `;
+      tableBody.appendChild(row);
+    });
+
+    updateSummary();
+  </script>
+</body>
+</html>
